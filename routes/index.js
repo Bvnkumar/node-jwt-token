@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
+  console.log("in the index")
   res.render('index', {
     title: 'Express'
   });
@@ -10,9 +11,9 @@ router.get('/', function (req, res, next) {
 //This is the route to get a token
 router.get('/token', function (req, res) {
   var token = jwt.sign({
-    name: "narendra"
+    user_id: "1234"
   }, "hello", {
-    expiresIn: '1m'
+    expiresIn: '10m'
   });
   res.send(token);
 });
